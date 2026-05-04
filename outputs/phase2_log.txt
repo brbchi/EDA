@@ -1,0 +1,28 @@
+Loaded df_model: (84990, 19)
+  Node features : torch.Size([84990, 9])
+  Targets       : torch.Size([84990, 2])
+  ss_enc==1 rows: 81281
+
+5-fold CV over 122 ss_encountered=1 holes
+  Fold 0: 25 holes, 16059 intervals
+  Fold 1: 25 holes, 16830 intervals
+  Fold 2: 24 holes, 16271 intervals
+  Fold 3: 24 holes, 16261 intervals
+  Fold 4: 24 holes, 15860 intervals
+
+=======================================================
+  k = 8
+=======================================================
+  Graph: 84990 nodes, 679920 edges
+  Fold 0: R2_HW=-0.009 RMSE_HW=90.5m  R2_FW=0.488 RMSE_FW=108.3m  (ep=100)
+  Fold 1: R2_HW=-0.031 RMSE_HW=102.8m  R2_FW=0.469 RMSE_FW=111.8m  (ep=100)
+  Fold 2: R2_HW=-0.207 RMSE_HW=69.2m  R2_FW=0.501 RMSE_FW=117.1m  (ep=100)
+  Fold 3: R2_HW=-0.051 RMSE_HW=80.7m  R2_FW=0.417 RMSE_FW=142.2m  (ep=100)
+  Fold 4: R2_HW=-0.306 RMSE_HW=93.4m  R2_FW=0.626 RMSE_FW=106.6m  (ep=100)
+  MEAN: R2_HW=-0.121 RMSE_HW=87.3m  R2_FW=0.500 RMSE_FW=117.2m
+
+=======================================================
+  k = 12
+=======================================================
+  Graph: 84990 nodes, 1019880 edges
+  Fold 0: R2_HW=-0.008 RMSE_HW=90.4m  R2_FW=0.441 RMSE_FW=113.1m  (ep=100)
