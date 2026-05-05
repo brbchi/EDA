@@ -51,6 +51,10 @@ warnings.filterwarnings("ignore")
 SEED = 42
 random.seed(SEED); np.random.seed(SEED); torch.manual_seed(SEED)
 
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {DEVICE}"
+      + (f"  ({torch.cuda.get_device_name(0)})" if DEVICE.type == "cuda" else ""))
+
 ROOT    = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "outputs")
 os.makedirs(OUT_DIR, exist_ok=True)
@@ -98,7 +102,7 @@ sequences = [r.pop("seq") for r in hole_records]
 hole_df   = pd.DataFrame(hole_records)
 N_HOLES   = len(hole_df)
 
-seq_lengths = torch.tensor([len(s) for s in sequences], dtype=torch.long)
+seq_lengths = torch.tensor([len(s) for s in sequences], dtype=torch.long).to(DEVICE)
 print(f"Total drillholes : {N_HOLES}")
 print(f"  ss_encountered=1 : {(hole_df['ss_encountered']==1).sum()}")
 print(f"  ss_encountered=0 : {(hole_df['ss_encountered']==0).sum()}")
@@ -107,9 +111,9 @@ print(f"Sequence lengths : min={seq_lengths.min().item()}  "
 
 # Pad sequences -> [N_HOLES, max_len, N_INTERVAL_FEAT]
 max_len    = int(seq_lengths.max().item())
-seq_padded = torch.zeros(N_HOLES, max_len, N_INTERVAL_FEAT)
+seq_padded = torch.zeros(N_HOLES, max_len, N_INTERVAL_FEAT, device=DEVICE)
 for i, s in enumerate(sequences):
-    seq_padded[i, :len(s)] = torch.tensor(s)
+    seq_padded[i, :len(s)] = torch.tensor(s, device=DEVICE)
 
 # ── 4. Standardise targets (fit on ss_encountered==1 holes only) ──────────────
 enc1_mask = hole_df["ss_encountered"].values == 1
@@ -117,7 +121,7 @@ raw_y     = hole_df[["depth_at_HW", "depth_at_fw"]].fillna(0).values.astype(np.f
 
 tgt_scaler = StandardScaler()
 tgt_scaler.fit(raw_y[enc1_mask])
-y_tensor = torch.tensor(tgt_scaler.transform(raw_y), dtype=torch.float32)
+y_tensor = torch.tensor(tgt_scaler.transform(raw_y), dtype=torch.float32).to(DEVICE)
 y_orig   = raw_y.copy()
 
 print(f"\nTarget means (orig) : HW={raw_y[enc1_mask,0].mean():.1f}m  "
@@ -143,7 +147,7 @@ hole_feats = torch.tensor(
         hole_df[["ss_encountered"]].values.astype(np.float32),        # flag   (1)
     ]),
     dtype=torch.float32
-)
+).to(DEVICE)
 print(f"Node feature dim : {hole_feats.shape[1]} scalar + 64 BiLSTM = "
       f"{hole_feats.shape[1] + 64} total")
 
@@ -232,14 +236,16 @@ def build_graph(k: int) -> torch.Tensor:
     idxs = idxs[:, 1:]
     src  = np.repeat(np.arange(N_HOLES), k)
     dst  = idxs.ravel()
-    return torch.tensor(np.stack([src, dst]), dtype=torch.long)
+    return torch.tensor(np.stack([src, dst]), dtype=torch.long).to(DEVICE)
 
 # ── 11. Train one fold ────────────────────────────────────────────────────────
 
 def train_fold(edge_index, tr_mask, vl_mask):
     torch.manual_seed(SEED)
-    model = DrillholeGNN()
+    model = DrillholeGNN().to(DEVICE)
     opt   = torch.optim.Adam(model.parameters(), lr=1e-3, betas=(0.9, 0.99), eps=1e-8)
+    tr_mask = tr_mask.to(DEVICE)
+    vl_mask = vl_mask.to(DEVICE)
     best_loss, best_w, wait = float("inf"), None, 0
 
     for ep in range(150):
@@ -266,17 +272,17 @@ def train_fold(edge_index, tr_mask, vl_mask):
                 break
 
     model.load_state_dict(best_w)
-    return model, ep + 1
+    return model, tr_mask, vl_mask, ep + 1
 
 # ── 12. Evaluate one fold ─────────────────────────────────────────────────────
 
 def eval_fold(model, edge_index, vl_mask):
     model.eval()
     with torch.no_grad():
-        p_scaled = model(seq_padded, seq_lengths, hole_feats, edge_index).numpy()
+        p_scaled = model(seq_padded, seq_lengths, hole_feats, edge_index).cpu().numpy()
 
     p_orig = tgt_scaler.inverse_transform(p_scaled)
-    idx    = vl_mask.numpy()
+    idx    = vl_mask.cpu().numpy()
     m      = {}
     for tgt, col in [("HW", 0), ("FW", 1)]:
         pv, tv = p_orig[idx, col], y_orig[idx, col]
@@ -299,7 +305,7 @@ for k in K_VALUES:
         vl_msk = torch.tensor((hole_fold == fold)  & enc1_mask, dtype=torch.bool)
         tr_msk = torch.tensor((hole_fold != fold)  & enc1_mask, dtype=torch.bool)
 
-        model, n_ep = train_fold(edge_index, tr_msk, vl_msk)
+        model, tr_msk, vl_msk, n_ep = train_fold(edge_index, tr_msk, vl_msk)
         m = eval_fold(model, edge_index, vl_msk)
         m.update({"fold": fold, "k": k, "epochs": n_ep})
         fold_rows.append(m)
