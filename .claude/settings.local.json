@@ -4,7 +4,9 @@
       "Bash(python gnn_ss_predict.py)",
       "Bash(python -c \"import torch; print\\(torch.__version__\\)\")",
       "Bash(python)",
-      "Bash(python -u phase2_ksweep.py)"
+      "Bash(python -u phase2_ksweep.py)",
+      "Bash(python -u predict_grid.py)",
+      "PowerShell(& \"c:\\\\Users\\\\fatim\\\\Desktop\\\\EDA\\\\.venv\\\\Scripts\\\\python.exe\" -c \"import sys; print\\(sys.path\\); import pandas\")"
     ]
   }
 }

@@ -1,0 +1,589 @@
+[1mdiff --git a/EDA.ipynb b/EDA.ipynb[m
+[1mindex 22b1634..5569107 100644[m
+[1m--- a/EDA.ipynb[m
+[1m+++ b/EDA.ipynb[m
+[36m@@ -2,7 +2,7 @@[m
+  "cells": [[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 2,[m
+[32m+[m[32m   "execution_count": 1,[m
+    "id": "14e29a34",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -20,7 +20,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 3,[m
+[32m+[m[32m   "execution_count": 2,[m
+    "id": "85ee1af1",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -106,7 +106,7 @@[m
+        "4  PZ5  439292.77  356688.05        446    747.55"[m
+       ][m
+      },[m
+[31m-     "execution_count": 3,[m
+[32m+[m[32m     "execution_count": 2,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -118,7 +118,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 4,[m
+[32m+[m[32m   "execution_count": 3,[m
+    "id": "1078f011",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -128,7 +128,7 @@[m
+        "(132, 5)"[m
+       ][m
+      },[m
+[31m-     "execution_count": 4,[m
+[32m+[m[32m     "execution_count": 3,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -139,7 +139,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 5,[m
+[32m+[m[32m   "execution_count": 4,[m
+    "id": "08c8cd18",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -168,7 +168,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 6,[m
+[32m+[m[32m   "execution_count": 5,[m
+    "id": "10f891fe",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -272,7 +272,7 @@[m
+        "max    456261.390000  367156.410000  478.000000  1300.000000"[m
+       ][m
+      },[m
+[31m-     "execution_count": 6,[m
+[32m+[m[32m     "execution_count": 5,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -283,7 +283,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 7,[m
+[32m+[m[32m   "execution_count": 6,[m
+    "id": "97bbfef3",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -298,7 +298,7 @@[m
+        "dtype: object"[m
+       ][m
+      },[m
+[31m-     "execution_count": 7,[m
+[32m+[m[32m     "execution_count": 6,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -309,7 +309,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 8,[m
+[32m+[m[32m   "execution_count": 7,[m
+    "id": "427b24ca",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -324,7 +324,7 @@[m
+        "dtype: bool"[m
+       ][m
+      },[m
+[31m-     "execution_count": 8,[m
+[32m+[m[32m     "execution_count": 7,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -335,7 +335,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 9,[m
+[32m+[m[32m   "execution_count": 8,[m
+    "id": "c284e026",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -345,7 +345,7 @@[m
+        "Index(['Nom', 'X', 'Y', 'Z_g_earth', 'Longueur'], dtype='object')"[m
+       ][m
+      },[m
+[31m-     "execution_count": 9,[m
+[32m+[m[32m     "execution_count": 8,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -356,7 +356,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 10,[m
+[32m+[m[32m   "execution_count": 9,[m
+    "id": "96c10155",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -473,7 +473,7 @@[m
+        "4     1.0        SEDS  "[m
+       ][m
+      },[m
+[31m-     "execution_count": 10,[m
+[32m+[m[32m     "execution_count": 9,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -485,7 +485,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 11,[m
+[32m+[m[32m   "execution_count": 10,[m
+    "id": "bf2c59bb",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -495,7 +495,7 @@[m
+        "(85030, 9)"[m
+       ][m
+      },[m
+[31m-     "execution_count": 11,[m
+[32m+[m[32m     "execution_count": 10,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -506,7 +506,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 12,[m
+[32m+[m[32m   "execution_count": 11,[m
+    "id": "07b3e291",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -525,7 +525,7 @@[m
+        "dtype: bool"[m
+       ][m
+      },[m
+[31m-     "execution_count": 12,[m
+[32m+[m[32m     "execution_count": 11,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -536,17 +536,17 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 13,[m
+[32m+[m[32m   "execution_count": 12,[m
+    "id": "c579480a",[m
+    "metadata": {},[m
+    "outputs": [[m
+     {[m
+      "data": {[m
+       "text/plain": [[m
+[31m-       "40"[m
+[32m+[m[32m       "np.int64(40)"[m
+       ][m
+      },[m
+[31m-     "execution_count": 13,[m
+[32m+[m[32m     "execution_count": 12,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -557,7 +557,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 14,[m
+[32m+[m[32m   "execution_count": 13,[m
+    "id": "98b9e139",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -567,7 +567,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 15,[m
+[32m+[m[32m   "execution_count": 14,[m
+    "id": "1ab8607f",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -586,7 +586,7 @@[m
+        "dtype: bool"[m
+       ][m
+      },[m
+[31m-     "execution_count": 15,[m
+[32m+[m[32m     "execution_count": 14,[m
+      "metadata": {},[m
+      "output_type": "execute_result"[m
+     }[m
+[36m@@ -597,7 +597,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 16,[m
+[32m+[m[32m   "execution_count": 15,[m
+    "id": "b51187d9",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -623,7 +623,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 17,[m
+[32m+[m[32m   "execution_count": 16,[m
+    "id": "fa45e314",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -654,7 +654,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 18,[m
+[32m+[m[32m   "execution_count": 17,[m
+    "id": "71bcc39f",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -689,7 +689,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 19,[m
+[32m+[m[32m   "execution_count": 18,[m
+    "id": "d8090522",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -703,7 +703,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 20,[m
+[32m+[m[32m   "execution_count": 19,[m
+    "id": "f39ac325",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -713,7 +713,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 21,[m
+[32m+[m[32m   "execution_count": 20,[m
+    "id": "00c5bdb0",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -819,7 +819,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 22,[m
+[32m+[m[32m   "execution_count": 21,[m
+    "id": "9c9802d1",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -862,7 +862,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 23,[m
+[32m+[m[32m   "execution_count": 22,[m
+    "id": "9b9e641e",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -896,7 +896,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 24,[m
+[32m+[m[32m   "execution_count": 23,[m
+    "id": "96ca0d14",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -949,7 +949,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 25,[m
+[32m+[m[32m   "execution_count": 24,[m
+    "id": "4c831b40",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -1015,7 +1015,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 26,[m
+[32m+[m[32m   "execution_count": 25,[m
+    "id": "9101bcf6",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -1076,7 +1076,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 27,[m
+[32m+[m[32m   "execution_count": 26,[m
+    "id": "da3b23bf",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -1149,7 +1149,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 28,[m
+[32m+[m[32m   "execution_count": 27,[m
+    "id": "690d859f",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -1259,7 +1259,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 29,[m
+[32m+[m[32m   "execution_count": 28,[m
+    "id": "e2bf63f0",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -1361,7 +1361,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 30,[m
+[32m+[m[32m   "execution_count": 29,[m
+    "id": "2747d079",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -1436,6 +1436,51 @@[m
+     "plt.close()\n",[m
+     "print(f\"✓ ss_graph_K{K_final}_with_grid.png saved\")"[m
+    ][m
+[32m+[m[32m  },[m
+[32m+[m[32m  {[m
+[32m+[m[32m   "cell_type": "code",[m
+[32m+[m[32m   "execution_count": 32,[m
+[32m+[m[32m   "id": "eed57b55",[m
+[32m+[m[32m   "metadata": {},[m
+[32m+[m[32m   "outputs": [],[m
+[32m+[m[32m   "source": [[m
+[32m+[m[32m    "ss_data = composited[composited['Lithologies'] == 'SS']"[m
+[32m+[m[32m   ][m
+[32m+[m[32m  },[m
+[32m+[m[32m  {[m
+[32m+[m[32m   "cell_type": "code",[m
+[32m+[m[32m   "execution_count": 38,[m
+[32m+[m[32m   "id": "98a9dfc4",[m
+[32m+[m[32m   "metadata": {},[m
+[32m+[m[32m   "outputs": [[m
+[32m+[m[32m    {[m
+[32m+[m[32m     "name": "stdout",[m
+[32m+[m[32m     "output_type": "stream",[m
+[32m+[m[32m     "text": [[m
+[32m+[m[32m      "['PZ116' 'PKB1']\n"[m
+[32m+[m[32m     ][m
+[32m+[m[32m    }[m
+[32m+[m[32m   ],[m
+[32m+[m[32m   "source": [[m
+[32m+[m[32m    "\n",[m
+[32m+[m[32m    "q1 = ss_data['Depth From'].quantile(0.25)\n",[m
+[32m+[m[32m    "q3 = ss_data['Depth From'].quantile(0.75)\n",[m
+[32m+[m[32m    "iqr = q3 - q1\n",[m
+[32m+[m[32m    "lower_bound = q1 - 1.5 * iqr\n",[m
+[32m+[m[32m    "upper_bound = q3 + 1.5 * iqr\n",[m
+[32m+[m[32m    "\n",[m
+[32m+[m[32m    "\n",[m
+[32m+[m[32m    "outliers = ss_data[(ss_data['Depth From'] < lower_bound) | (ss_data['Depth From'] > upper_bound)]\n",[m
+[32m+[m[32m    "print(outliers['Drillholes'].unique())\n"[m
+[32m+[m[32m   ][m
+[32m+[m[32m  },[m
+[32m+[m[32m  {[m
+[32m+[m[32m   "cell_type": "code",[m
+[32m+[m[32m   "execution_count": null,[m
+[32m+[m[32m   "id": "006c79d4",[m
+[32m+[m[32m   "metadata": {},[m
+[32m+[m[32m   "outputs": [],[m
+[32m+[m[32m   "source": [][m
+   }[m
+  ],[m
+  "metadata": {[m
+[36m@@ -1454,7 +1499,7 @@[m
+    "name": "python",[m
+    "nbconvert_exporter": "python",[m
+    "pygments_lexer": "ipython3",[m
+[31m-   "version": "3.12.7"[m
+[32m+[m[32m   "version": "3.13.5"[m
+   }[m
+  },[m
+  "nbformat": 4,[m
+[1mdiff --git a/EDA_1_overview.png b/EDA_1_overview.png[m
+[1mindex 0ca644f..4d48328 100644[m
+Binary files a/EDA_1_overview.png and b/EDA_1_overview.png differ
+[1mdiff --git a/EDA_2_spatial.png b/EDA_2_spatial.png[m
+[1mindex 29a2b80..bd5502e 100644[m
+Binary files a/EDA_2_spatial.png and b/EDA_2_spatial.png differ
+[1mdiff --git a/EDA_3_correlation.png b/EDA_3_correlation.png[m
+[1mindex e1d180e..c6446f9 100644[m
+Binary files a/EDA_3_correlation.png and b/EDA_3_correlation.png differ
+[1mdiff --git a/EDA_correlation_all.png b/EDA_correlation_all.png[m
+[1mindex 0dfe095..96abc85 100644[m
+Binary files a/EDA_correlation_all.png and b/EDA_correlation_all.png differ
+[1mdiff --git a/build_graph.py b/build_graph.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0234763[m
+[1m--- /dev/null[m
+[1m+++ b/build_graph.py[m
+[36m@@ -0,0 +1,43 @@[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport numpy as np[m
+[32m+[m[32mimport pandas as pd[m
+[32m+[m[32mimport matplotlib[m
+[32m+[m[32mmatplotlib.use("Agg")[m
+[32m+[m[32mimport matplotlib.pyplot as plt[m
+[32m+[m[32mfrom sklearn.neighbors import NearestNeighbors[m
+[32m+[m
+[32m+[m[32mK      = 10[m
+[32m+[m[32mROOT   = os.path.dirname(os.path.abspath(__file__))[m
+[32m+[m[32mcollar = pd.read_csv(os.path.join(ROOT, "collar.csv"))[m
+[32m+[m
+[32m+[m[32mcoords  = collar[["X", "Y"]].values[m
+[32m+[m[32mnbrs    = NearestNeighbors(n_neighbors=K + 1, algorithm="ball_tree").fit(coords)[m
+[32m+[m[32m_, indices = nbrs.kneighbors(coords)[m
+[32m+[m[32mindices = indices[:, 1:]   # drop self[m
+[32m+[m
+[32m+[m[32mfig, ax = plt.subplots(figsize=(10, 9))[m
+[32m+[m
+[32m+[m[32mfor i in range(len(collar)):[m
+[32m+[m[32m    x0, y0 = collar.loc[i, "X"], collar.loc[i, "Y"][m
+[32m+[m[32m    for j in indices[i]:[m
+[32m+[m[32m        x1, y1 = collar.loc[j, "X"], collar.loc[j, "Y"][m
+[32m+[m[32m        ax.plot([x0, x1], [y0, y1], color="black", lw=0.6, alpha=0.5, zorder=1)[m
+[32m+[m
+[32m+[m[32msc = ax.scatter(collar["X"], collar["Y"], c=collar["Z_g_earth"],[m
+[32m+[m[32m                cmap="viridis", s=40, zorder=2,[m
+[32m+[m[32m                edgecolors="black", linewidths=0.4)[m
+[32m+[m
+[32m+[m[32mcbar = plt.colorbar(sc, ax=ax)[m
+[32m+[m[32mcbar.set_label("Z Depth", fontsize=10)[m
+[32m+[m
+[32m+[m[32max.set_xlabel("XCOLLAR", fontsize=11)[m
+[32m+[m[32max.set_ylabel("YCOLLAR", fontsize=11)[m
+[32m+[m[32max.set_title(f"Two-dimensional graph visualisation of the sampled drillhole connections  (k={K})",[m
+[32m+[m[32m             fontsize=11)[m
+[32m+[m[32max.ticklabel_format(style="sci", axis="both", scilimits=(5, 5))[m
+[32m+[m
+[32m+[m[32mplt.tight_layout()[m
+[32m+[m[32mout = os.path.join(ROOT, f"graph_2d_collars_k{K}.png")[m
+[32m+[m[32mplt.savefig(out, dpi=160, bbox_inches="tight")[m
+[32m+[m[32mplt.close()[m
+[32m+[m[32mprint(f"Saved: {out}")[m
+[1mdiff --git a/drillholes_3d.png b/drillholes_3d.png[m
+[1mindex 9fefabc..ba3eb07 100644[m
+Binary files a/drillholes_3d.png and b/drillholes_3d.png differ
+[1mdiff --git a/graph_2d_collars.png b/graph_2d_collars.png[m
+[1mindex 7d49a59..b8e163e 100644[m
+Binary files a/graph_2d_collars.png and b/graph_2d_collars.png differ
+[1mdiff --git a/graph_2d_collars_k10.png b/graph_2d_collars_k10.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1c7d42d[m
+Binary files /dev/null and b/graph_2d_collars_k10.png differ
+[1mdiff --git a/k_selection_ss_hwfw.png b/k_selection_ss_hwfw.png[m
+[1mindex 1976d37..040e65e 100644[m
+Binary files a/k_selection_ss_hwfw.png and b/k_selection_ss_hwfw.png differ
+[1mdiff --git a/outputs/gnn_cv_results.csv b/outputs/gnn_cv_results.csv[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0f40f77[m
+[1m--- /dev/null[m
+[1m+++ b/outputs/gnn_cv_results.csv[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32mR2_HW,RMSE_HW,MAE_HW,R2_FW,RMSE_FW,MAE_FW,fold,epochs[m
+[32m+[m[32m0.9214829206466675,25.244311607859057,19.02646827697754,0.9537346363067627,32.55187791601853,26.460426330566406,0,90[m
+[32m+[m[32m0.7116382122039795,54.37026514945347,27.821035385131836,0.8147932291030884,66.06616223884016,39.04502868652344,1,70[m
+[32m+[m[32m0.5714677572250366,41.227401184144966,31.8985652923584,0.8701645135879517,59.69729345374985,45.02566146850586,2,44[m
+[32m+[m[32m0.6199227571487427,48.55097594925358,35.15992736816406,0.888803243637085,62.07535624960702,49.2183952331543,3,42[m
+[32m+[m[32m0.8647546172142029,30.058016817481487,24.950395584106445,0.9562384486198425,36.46847719745866,25.938512802124023,4,72[m
+[1mdiff --git a/outputs/gnn_cv_results.png b/outputs/gnn_cv_results.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e83715c[m
+Binary files /dev/null and b/outputs/gnn_cv_results.png differ
+[1mdiff --git a/outputs/gnn_model.pt b/outputs/gnn_model.pt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d9d1b91[m
+Binary files /dev/null and b/outputs/gnn_model.pt differ
+[1mdiff --git a/outputs/gnn_results.csv b/outputs/gnn_results.csv[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ea4ff06[m
+[1m--- /dev/null[m
+[1m+++ b/outputs/gnn_results.csv[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32msplit,R2_HW,RMSE_HW,MAE_HW,R2_FW,RMSE_FW,MAE_FW[m
+[32m+[m[32mtrain,0.9811519980430603,11.725920332391892,8.910029411315918,0.9859375953674316,20.785650673620523,16.499441146850586[m
+[32m+[m[32mtest,0.8025058507919312,33.80506575504809,22.532337188720703,0.9273049235343933,33.68445421933815,25.264616012573242[m
+[1mdiff --git a/outputs/gnn_results.png b/outputs/gnn_results.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..96c8913[m
+Binary files /dev/null and b/outputs/gnn_results.png differ
+[1mdiff --git a/outputs/gnn_scalers.pkl b/outputs/gnn_scalers.pkl[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f9cc2e5[m
+Binary files /dev/null and b/outputs/gnn_scalers.pkl differ
+[1mdiff --git a/outputs/k10_results.csv b/outputs/k10_results.csv[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5bbc933[m
+[1m--- /dev/null[m
+[1m+++ b/outputs/k10_results.csv[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32mR2_HW,RMSE_HW,MAE_HW,R2_FW,RMSE_FW,MAE_FW,fold,k,epochs[m
+[32m+[m[32m0.9264182448387146,24.43805571019371,18.381057739257812,0.9519550204277039,33.172020357076725,26.758625030517578,0,10,85[m
+[32m+[m[32m0.7137672901153564,54.1691708655913,30.991565704345703,0.8528993129730225,58.8786697701829,34.46253204345703,1,10,46[m
+[32m+[m[32m0.5655566453933716,41.51077167482029,32.02791213989258,0.8725452423095703,59.14744841746662,44.44063186645508,2,10,39[m
+[32m+[m[32m0.6223136186599731,48.39802827207943,34.23237991333008,0.8901758193969727,61.691051933581704,49.63883972167969,3,10,36[m
+[32m+[m[32m0.87669837474823,28.70010105872887,23.654634475708008,0.9569113850593567,36.18698894554937,26.15946388244629,4,10,67[m
+[1mdiff --git a/outputs/k10_results.png b/outputs/k10_results.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8f93902[m
+Binary files /dev/null and b/outputs/k10_results.png differ
+[1mdiff --git a/outputs/k_sweep_b_results.png b/outputs/k_sweep_b_results.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..596f717[m
+Binary files /dev/null and b/outputs/k_sweep_b_results.png differ
+[1mdiff --git a/outputs/k_sweep_b_summary.csv b/outputs/k_sweep_b_summary.csv[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c5c2960[m
+[1m--- /dev/null[m
+[1m+++ b/outputs/k_sweep_b_summary.csv[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32mk,R2_HW,RMSE_HW,MAE_HW,R2_FW,RMSE_FW,MAE_FW,epochs,RMSE_combined[m
+[32m+[m[32m4.0,0.6905,43.1887,30.2388,0.888,54.881,37.6035,57.8,98.0697[m
+[32m+[m[32m6.0,0.7168,42.8289,29.8942,0.882,56.4355,41.219,40.4,99.2644[m
+[32m+[m[32m8.0,0.7137,42.1867,28.2531,0.8977,51.7446,37.5887,52.2,93.9313[m
+[32m+[m[32m10.0,0.7416,39.4338,27.8799,0.9051,49.8019,36.6495,54.6,89.23570000000001[m
+[32m+[m[32m12.0,0.7232,41.2254,29.3936,0.8998,51.5918,37.4868,52.2,92.8172[m
+[32m+[m[32m16.0,0.7365,40.3705,27.0737,0.8899,54.0098,37.5979,52.4,94.3803[m
+[1mdiff --git a/phase2b_drillhole_nodes.py b/phase2b_drillhole_nodes.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b4b148c[m
+[1m--- /dev/null[m
+[1m+++ b/phase2b_drillhole_nodes.py[m
+[36m@@ -0,0 +1,361 @@[m
+[32m+[m[32m"""[m
+[32m+[m[32mPHASE 2b -- k-Sweep: Drillhole-Level Nodes + Full Interval Encoding[m
+[32m+[m
+[32m+[m[32mEach drillhole is a single graph node whose features combine three groups:[m
+[32m+[m[32m  1. Spatial/geometric  : X, Y, Z_g_earth (scaled), hole_length          [4][m
+[32m+[m[32m  2. Lithological summary: n_intervals, ss_proportion, n_ss_intervals,[m
+[32m+[m[32m                           mean_interval_length, std_interval_length,[m
+[32m+[m[32m                           ss_encountered                                  [6][m
+[32m+[m[32m  3. Sequence embedding  : BiLSTM(in=5, hidden=32, bidir) over depth-[m
+[32m+[m[32m                           sorted intervals -> 64-dim                     [64][m
+[32m+[m[32m  Total
