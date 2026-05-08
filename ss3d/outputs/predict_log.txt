@@ -1,0 +1,17 @@
+Training intervals : 84,990  |  K=15  |  NODE_DIM=6  |  HIDDEN=64
+Model loaded.
+Building 3-D kNN index on 84,990 training nodes ...
+kNN index ready.
+Z levels   : -760 to 440 m  step=12m  (101 levels)
+XY grid    : 200x160 = 32,000 points
+Total query nodes : 32,000 x 101 = 3,232,000
+  [   1/107]     300/32,000 pts  SS found=48  elapsed=0.0min  ETA=1.8min
+  [  51/107]  15,300/32,000 pts  SS found=9,574  elapsed=0.9min  ETA=1.0min
+  [ 101/107]  30,300/32,000 pts  SS found=19,539  elapsed=1.8min  ETA=0.1min
+  [ 107/107]  32,000/32,000 pts  SS found=20,270  elapsed=1.9min  ETA=0.0min
+
+Done in 1.9 min  ->  C:\Users\fatim\Desktop\EDA\ss3d\outputs\predicted_grid.csv
+Grid points with SS detected : 20,270 / 32,000
+  Z_HW_elev : mean=197.6  std=99.1  range=[-340.0, 440.0]
+  Z_FW_elev : mean=-173.2  std=265.3  range=[-748.0, 248.0]
+  Thickness : mean=370.8  std=234.0

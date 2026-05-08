@@ -1,0 +1,28 @@
+Device: cpu
+Intervals loaded : 84,990
+SS fraction : 0.542  (46,043 SS)
+
+Spatial hold-out (middle 20 % X-strip)
+  Train intervals : 68,139  (80.2 %)
+  Test  intervals : 16,851  (19.8 %)
+
+Building 3-D k=15 graph on 84,990 nodes ...
+Graph: 84,990 nodes, 1,274,850 edges
+pos_weight = 0.85
+
+Training  epochs=200  patience=20
+  Epoch   1  train=0.6935  val=0.5797  best=0.5797
+  Epoch  20  train=0.3636  val=0.3478  best=0.3478
+  Epoch  40  train=0.2240  val=0.2480  best=0.2457
+  Epoch  60  train=0.1740  val=0.2551  best=0.2454
+  Early stop at epoch 64
+  Train: AUC=0.975  F1=0.933  Acc=0.925
+  Test : AUC=0.954  F1=0.904  Acc=0.909
+
+Pre-computing training embeddings (h1, h2) ...
+  h1: (84990, 64)  h2: (84990, 64)
+Saved: outputs/gnn_model.pt
+Saved: outputs/gnn_scalers.pkl
+Saved: outputs/gnn_results.png
+
+=== TRAINING COMPLETE ===
