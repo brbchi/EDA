@@ -191,7 +191,8 @@ def predict_certainty_batch(xy_batch):
     spread        = member_probs.std(axis=0)            # (nq,)
 
     return (certainty_pct.reshape(B, N_Z),
-            spread.reshape(B, N_Z))
+            spread.reshape(B, N_Z),
+            member_probs.reshape(M_ENSEMBLE, B, N_Z))
 
 
 # ── 6. Run grid inference — save full 3D voxel output ────────────────────────
@@ -203,12 +204,25 @@ n_batches = (N_XY + BATCH_XY - 1) // BATCH_XY
 cert_grid   = np.zeros((N_XY, N_Z), dtype=np.float32)
 spread_grid = np.zeros((N_XY, N_Z), dtype=np.float32)
 
+# Per-model contact elevation — used to compute Z_HW_std in metres
+hw_per_model = np.full((M_ENSEMBLE, N_XY), np.nan, np.float32)
+fw_per_model = np.full((M_ENSEMBLE, N_XY), np.nan, np.float32)
+
 for bi in range(n_batches):
     start = bi * BATCH_XY
     end   = min(start + BATCH_XY, N_XY)
-    cert_batch, spread_batch = predict_certainty_batch(xy_grid[start:end])
+    B = end - start
+    cert_batch, spread_batch, member_batch = predict_certainty_batch(xy_grid[start:end])
     cert_grid[start:end]   = cert_batch
     spread_grid[start:end] = spread_batch
+
+    # Per-model contact extraction (vectorised)
+    above     = member_batch > THRESHOLD                        # (M, B, N_Z) bool
+    any_above = above.any(axis=2)                               # (M, B)
+    hw_idx    = (N_Z - 1) - above[:, :, ::-1].argmax(axis=2)  # last True in Z
+    fw_idx    = above.argmax(axis=2)                            # first True in Z
+    hw_per_model[:, start:end] = np.where(any_above, z_levels[hw_idx], np.nan)
+    fw_per_model[:, start:end] = np.where(any_above, z_levels[fw_idx], np.nan)
 
     if bi % 40 == 0 or bi == n_batches - 1:
         elapsed = time.time() - t0
@@ -248,13 +262,19 @@ for i in range(N_XY):
         hw_spread[i] = spread_grid[i, ss_idx[-1]]   # uncertainty at HW contact
         fw_spread[i] = spread_grid[i, ss_idx[0]]    # uncertainty at FW contact
 
+# Elevation std across 100 models (metres) — used for the ±2σ visual envelope
+Z_HW_std = np.nanstd(hw_per_model, axis=0)
+Z_FW_std = np.nanstd(fw_per_model, axis=0)
+
 contacts_df = pd.DataFrame({
     "X"          : xy_grid[:, 0],
     "Y"          : xy_grid[:, 1],
     "Z_HW"       : hw_mean,
     "Z_HW_spread": hw_spread,
+    "Z_HW_std"   : Z_HW_std,
     "Z_FW"       : fw_mean,
     "Z_FW_spread": fw_spread,
+    "Z_FW_std"   : Z_FW_std,
 })
 contacts_path = os.path.join(OUT_DIR, "certainty_grid_contacts.csv")
 contacts_df.to_csv(contacts_path, index=False)
@@ -263,8 +283,8 @@ print(f"Saved: {contacts_path}")
 valid = ~np.isnan(hw_mean)
 print(f"\nGrid points with SS detected : {valid.sum():,} / {N_XY:,}")
 if valid.sum() > 0:
-    print(f"  Z_HW : mean={hw_mean[valid].mean():.1f}  spread={hw_spread[valid].mean():.3f}")
-    print(f"  Z_FW : mean={fw_mean[valid].mean():.1f}  spread={fw_spread[valid].mean():.3f}")
+    print(f"  Z_HW : mean={hw_mean[valid].mean():.1f}  spread={hw_spread[valid].mean():.3f}  elev_std={Z_HW_std[valid].mean():.1f}m")
+    print(f"  Z_FW : mean={fw_mean[valid].mean():.1f}  spread={fw_spread[valid].mean():.3f}  elev_std={Z_FW_std[valid].mean():.1f}m")
     thick = hw_mean[valid] - fw_mean[valid]
     print(f"  Thickness : mean={thick.mean():.1f}  std={thick.std():.1f}")
 
